@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:50:46 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/09 23:09:14 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/10 00:09:37 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	if (this != &other)
 	{
-		name = other.name;
-		hitPoints = other.hitPoints;
+		name		 = other.name;
+		hitPoints	 = other.hitPoints;
 		energyPoints = other.energyPoints;
 		attackDamage = other.attackDamage;
 	}
@@ -66,10 +66,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 }
 
 
-/* ************************************************************************** */
-/*                              DESTRUCTOR                                    */
-/* ************************************************************************** */
-
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor of " << name << " called" << std::endl;
@@ -77,7 +73,18 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
+    if (hitPoints < 1)
+    {
+        std::cout << "ClapTrap " << name << " can't attack." << std::endl;
+        return;
+    }
+	if (energyPoints < 1)
+    {
+        std::cout << "ClapTrap " << name << " can't attack." << std::endl;
+        return;
+    }
     std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+    energyPoints--;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
