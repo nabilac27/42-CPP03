@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:50:46 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/09 13:54:18 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/09 23:09:14 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,50 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor of " << name << " called" << std::endl;
+}
+
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+	std::cout << "Copy assignment operator of " << name << " called" << std::endl;
+	return (*this);
+}
+
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+	if (this != &other)
+	{
+		name = other.name;
+		hitPoints = other.hitPoints;
+		energyPoints = other.energyPoints;
+		attackDamage = other.attackDamage;
+	}
+	std::cout << "Copy assignment operator of " << name << " called" << std::endl;
+	return (*this);
+}
+
+
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor of " << name << " called" << std::endl;
+}
+
+void ClapTrap::attack(const std::string& target)
+{
+    std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	std::cout << "ClapTrap " << name << " takes " << amount << " points of damages!" << std::endl;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	std::cout << "ClapTrap " << name << " repairs, causing " << amount << " hit points!" << std::endl;
 }
