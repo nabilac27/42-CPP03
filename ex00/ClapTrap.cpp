@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:50:46 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/10 00:09:37 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/10 11:17:56 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,7 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (hitPoints < 1)
-    {
-        std::cout << "ClapTrap " << name << " can't attack." << std::endl;
-        return;
-    }
-	if (energyPoints < 1)
+    if (hitPoints < 1 || energyPoints < 1)
     {
         std::cout << "ClapTrap " << name << " can't attack." << std::endl;
         return;
@@ -89,10 +84,23 @@ void ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
+    if (hitPoints < 1)
+    {
+        std::cout << "ClapTrap" << name << " can't take damage." << std::endl;
+        return;
+    }
+    hitPoints = hitPoints - amount;
 	std::cout << "ClapTrap " << name << " takes " << amount << " points of damages!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+    if (hitPoints < 1 || energyPoints < 1)
+    {
+        std::cout << "ClapTrap " << name << " can't repair." << std::endl;
+        return;
+    }
+    energyPoints--;
+	hitPoints = hitPoints + amount;
 	std::cout << "ClapTrap " << name << " repairs, causing " << amount << " hit points!" << std::endl;
 }
