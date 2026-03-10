@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 23:09:22 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/10 11:18:55 by nchairun         ###   ########.fr       */
+/*   Created: 2026/03/07 16:21:58 by nchairun          #+#    #+#             */
+/*   Updated: 2026/03/10 11:20:35 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main()
-{
-    ClapTrap ClapA("ClapA");
-    ClapTrap ClapB("ClapB");
-    ClapTrap ClapC("ClapC");
+/* 
+    - Name, which is passed as a parameter to the constructor
+    - Hit points (100), representing the health of the ClapTrap
+    - Energy points (50)
+    - Attack damage (20)
+    - void guardGate()
+*/
 
-    ClapA.attack("target");
-    ClapB.takeDamage(5);
-    ClapC.beRepaired(3);
 
-    return (0);
-}
