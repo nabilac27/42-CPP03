@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 23:09:22 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/11 10:47:21 by nchairun         ###   ########.fr       */
+/*   Created: 2026/03/07 16:49:53 by nchairun          #+#    #+#             */
+/*   Updated: 2026/03/07 16:50:46 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-int main()
+class FragTrap : public ClapTrap
 {
-    ClapTrap ClapA("ClapA");
-    ClapTrap ClapB("ClapB");
-    ClapTrap ClapC("ClapC");
+    public:
+        FragTrap();
+        FragTrap(const std::string& name);
+        FragTrap(const FragTrap& other);
+        FragTrap& operator=(const FragTrap& other);
+        ~FragTrap();
 
-    ClapA.attack("target");
-    ClapB.takeDamage(5);
-    ClapC.beRepaired(3);
+    void    highFivesGuys(void);
+};
 
-    ScavTrap scav("ScavA");
-    scav.attack("target");
-    scav.guardGate();
-
-    return 0;
-}
+#endif

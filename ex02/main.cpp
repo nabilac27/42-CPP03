@@ -5,27 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 23:09:22 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/11 10:47:21 by nchairun         ###   ########.fr       */
+/*   Created: 2026/03/07 12:18:33 by nchairun          #+#    #+#             */
+/*   Updated: 2026/03/11 10:46:57 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-
-int main()
-{
-    ClapTrap ClapA("ClapA");
-    ClapTrap ClapB("ClapB");
-    ClapTrap ClapC("ClapC");
-
-    ClapA.attack("target");
-    ClapB.takeDamage(5);
-    ClapC.beRepaired(3);
-
-    ScavTrap scav("ScavA");
-    scav.attack("target");
-    scav.guardGate();
-
-    return 0;
-}
