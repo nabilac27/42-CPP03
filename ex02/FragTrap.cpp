@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:24:44 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/11 15:25:17 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/11 18:17:49 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,42 @@ FragTrap::FragTrap() : ClapTrap("default")
     energyPoints = 100;
     attackDamage = 30;
     std::cout << "Default constructor called [FragTrap]" << std::endl;
+}
+
+
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+{
+    hitPoints = 100;
+    energyPoints = 100;
+    attackDamage = 30;
+    std::cout << "Parameterized constructor called [FragTrap]" << std::endl;
+}
+
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
+{
+    *this = other;
+    std::cout << "Copy constructor called [FragTrap]" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& other)
+{
+    if (this != &other)
+    {
+        name = other.name;
+        hitPoints = other.hitPoints;
+        energyPoints = other.energyPoints;
+        attackDamage = other.attackDamage;
+    }
+    std::cout << "Copy assignment operator called [FragTrap]" << std::endl;
+    return *this;
+}
+
+FragTrap::~FragTrap()
+{
+    std::cout << "Destructor called [FragTrap]" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void)
+{
+    std::cout << "FragTrap " << name << " requests a positive high five!" << std::endl;
 }
