@@ -6,11 +6,15 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 11:08:07 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/07 15:12:55 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:03:02 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+/* ************************************************************************** */
+/*                            CONSTRUCTORS                                    */
+/* ************************************************************************** */
 
 ClapTrap::ClapTrap() : name("default"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
@@ -28,12 +32,16 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 	std::cout << "Copy constructor of " << name << " called" << std::endl;
 }
 
+/* ************************************************************************** */
+/*                        ASSIGNMENT OPERATOR                                 */
+/* ************************************************************************** */
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	if (this != &other)
 	{
-		name = other.name;
-		hitPoints = other.hitPoints;
+		name		 = other.name;
+		hitPoints	 = other.hitPoints;
 		energyPoints = other.energyPoints;
 		attackDamage = other.attackDamage;
 	}
@@ -41,10 +49,18 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 	return (*this);
 }
 
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor of " << name << " called" << std::endl;
 }
+
+/* ************************************************************************** */
+/*                              ACTIONS                                       */
+/* ************************************************************************** */
 
 void ClapTrap::attack(const std::string& target)
 {
@@ -79,14 +95,3 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	hitPoints = hitPoints + amount;
 	std::cout << "ClapTrap " << name << " repairs, causing " << amount << " hit points!" << std::endl;
 }
-
-// can’t do anything if it has no hit points or energy points left
-//  ClapTrap instances should not interact directly with one another,  and the parameters will not refer to another instance of ClapTrap
-
-/* 
-    Attack costs 1 energy
-    Repair costs 1 energy
-    If hitPoints == 0 → ClapTrap can't do anything
-    If energyPoints == 0 → ClapTrap can't act
-    takeDamage() just reduces HP
-*/

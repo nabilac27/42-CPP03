@@ -6,11 +6,15 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:24:44 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/11 18:17:49 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:03:36 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+/* ************************************************************************** */
+/*                            CONSTRUCTORS                                    */
+/* ************************************************************************** */
 
 FragTrap::FragTrap() : ClapTrap("default")
 {
@@ -35,6 +39,10 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
     std::cout << "Copy constructor called [FragTrap]" << std::endl;
 }
 
+/* ************************************************************************** */
+/*                        ASSIGNMENT OPERATOR                                 */
+/* ************************************************************************** */
+
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
     if (this != &other)
@@ -48,10 +56,18 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
     return *this;
 }
 
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
+
 FragTrap::~FragTrap()
 {
     std::cout << "Destructor called [FragTrap]" << std::endl;
 }
+
+/* ************************************************************************** */
+/*                              ACTIONS                                       */
+/* ************************************************************************** */
 
 void FragTrap::highFivesGuys(void)
 {

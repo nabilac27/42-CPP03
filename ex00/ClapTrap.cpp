@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:50:46 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/10 11:17:56 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 01:58:00 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
     If energyPoints == 0 → ClapTrap can't act
     takeDamage() just reduces HP
 */
+
+/* ************************************************************************** */
+/*                            CONSTRUCTORS                                    */
+/* ************************************************************************** */
 
 ClapTrap::ClapTrap() : name("default"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
@@ -39,25 +43,16 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 	std::cout << "Copy constructor of " << name << " called" << std::endl;
 }
 
-ClapTrap::~ClapTrap()
-{
-	std::cout << "Destructor of " << name << " called" << std::endl;
-}
-
-
-ClapTrap &ClapTrap::operator=(const ClapTrap &other)
-{
-	std::cout << "Copy assignment operator of " << name << " called" << std::endl;
-	return (*this);
-}
-
+/* ************************************************************************** */
+/*                        ASSIGNMENT OPERATOR                                 */
+/* ************************************************************************** */
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	if (this != &other)
 	{
-		name		 = other.name;
-		hitPoints	 = other.hitPoints;
+		name = other.name;
+		hitPoints = other.hitPoints;
 		energyPoints = other.energyPoints;
 		attackDamage = other.attackDamage;
 	}
@@ -65,11 +60,9 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 	return (*this);
 }
 
-
-ClapTrap::~ClapTrap()
-{
-	std::cout << "Destructor of " << name << " called" << std::endl;
-}
+/* ************************************************************************** */
+/*                              ACTIONS                                       */
+/* ************************************************************************** */
 
 void ClapTrap::attack(const std::string& target)
 {

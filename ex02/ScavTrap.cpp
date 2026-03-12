@@ -6,33 +6,27 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 16:21:58 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/07 16:47:07 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:02:41 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-/* 
-    - Name, which is passed as a parameter to the constructor
-    - Hit points (100), representing the health of the ClapTrap
-    - Energy points (50)
-    - Attack damage (20)
-    - void guardGate()
-*/
-
+/* ************************************************************************** */
+/*                            CONSTRUCTORS                                    */
+/* ************************************************************************** */
 
 ScavTrap::ScavTrap() : ClapTrap("default")
 {
-    hitPoints = 100;
+    hitPoints    = 100;
     energyPoints = 50;
     attackDamage = 20;
     std::cout << "Default constructor called [ScavTrap]" << std::endl;
 }
 
-
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
-    hitPoints = 100;
+    hitPoints    = 100;
     energyPoints = 50;
     attackDamage = 20;
     std::cout << "Parameterized constructor called [ScavTrap]" << std::endl;
@@ -44,12 +38,16 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
     std::cout << "Copy constructor called [ScavTrap]" << std::endl;
 }
 
+/* ************************************************************************** */
+/*                        ASSIGNMENT OPERATOR                                 */
+/* ************************************************************************** */
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
     {
-        name = other.name;
-        hitPoints = other.hitPoints;
+        name         = other.name;
+        hitPoints    = other.hitPoints;
         energyPoints = other.energyPoints;
         attackDamage = other.attackDamage;
     }
@@ -57,10 +55,18 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
     return (*this);
 }
 
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "Destructor called [ScavTrap]" << std::endl;
 }
+
+/* ************************************************************************** */
+/*                              ACTIONS                                       */
+/* ************************************************************************** */
 
 void ScavTrap::attack(const std::string& target)
 {

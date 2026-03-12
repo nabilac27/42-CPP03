@@ -6,7 +6,7 @@
 #    By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/09 13:24:49 by nchairun          #+#    #+#              #
-#    Updated: 2026/03/09 13:24:51 by nchairun         ###   ########.fr        #
+#    Updated: 2026/03/12 01:55:41 by nchairun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME	= claptrap
 #                               FILE STRUCTURE                                 #
 # **************************************************************************** #
 OBJ_DIR	= obj/
-SRCS	= main.cpp ClapTrap.cpp
+SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS	= $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
 # **************************************************************************** #

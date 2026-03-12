@@ -6,22 +6,15 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:50:46 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/10 11:17:56 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:00:59 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-// can’t do anything if it has no hit points or energy points left
-//  ClapTrap instances should not interact directly with one another,  and the parameters will not refer to another instance of ClapTrap
-
-/* 
-    Attack costs 1 energy
-    Repair costs 1 energy
-    If hitPoints == 0 → ClapTrap can't do anything
-    If energyPoints == 0 → ClapTrap can't act
-    takeDamage() just reduces HP
-*/
+/* ************************************************************************** */
+/*                            CONSTRUCTORS                                    */
+/* ************************************************************************** */
 
 ClapTrap::ClapTrap() : name("default"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
@@ -39,18 +32,9 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 	std::cout << "Copy constructor of " << name << " called" << std::endl;
 }
 
-ClapTrap::~ClapTrap()
-{
-	std::cout << "Destructor of " << name << " called" << std::endl;
-}
-
-
-ClapTrap &ClapTrap::operator=(const ClapTrap &other)
-{
-	std::cout << "Copy assignment operator of " << name << " called" << std::endl;
-	return (*this);
-}
-
+/* ************************************************************************** */
+/*                        ASSIGNMENT OPERATOR                                 */
+/* ************************************************************************** */
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
@@ -65,11 +49,18 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 	return (*this);
 }
 
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
 
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor of " << name << " called" << std::endl;
 }
+
+/* ************************************************************************** */
+/*                              ACTIONS                                       */
+/* ************************************************************************** */
 
 void ClapTrap::attack(const std::string& target)
 {

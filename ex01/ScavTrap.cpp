@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 16:21:58 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/10 22:26:30 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:02:20 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
     - void guardGate()
 */
 
+/* ************************************************************************** */
+/*                            CONSTRUCTORS                                    */
+/* ************************************************************************** */
 
 ScavTrap::ScavTrap() : ClapTrap("default")
 {
@@ -28,7 +31,6 @@ ScavTrap::ScavTrap() : ClapTrap("default")
     attackDamage = 20;
     std::cout << "Default constructor called [ScavTrap]" << std::endl;
 }
-
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
@@ -44,6 +46,10 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
     std::cout << "Copy constructor called [ScavTrap]" << std::endl;
 }
 
+/* ************************************************************************** */
+/*                        ASSIGNMENT OPERATOR                                 */
+/* ************************************************************************** */
+
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
@@ -57,10 +63,18 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
     return (*this);
 }
 
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "Destructor called [ScavTrap]" << std::endl;
 }
+
+/* ************************************************************************** */
+/*                              ACTIONS                                       */
+/* ************************************************************************** */
 
 void ScavTrap::attack(const std::string& target)
 {
