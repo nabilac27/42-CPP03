@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 11:08:36 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/07 16:26:44 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:20:56 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap {
         ClapTrap(const std::string& name);
         ClapTrap(const ClapTrap& other);
         ClapTrap& operator=(const ClapTrap& other);
-        ~ClapTrap();
+        virtual ~ClapTrap(); // ensures the child class destructor runs when deleting a ClapTrap pointer
 
         void    attack(const std::string& target);
         void    takeDamage(unsigned int amount);
