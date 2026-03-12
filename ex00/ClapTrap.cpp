@@ -6,7 +6,7 @@
 /*   By: nchairun <nchairun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 13:50:46 by nchairun          #+#    #+#             */
-/*   Updated: 2026/03/12 01:58:00 by nchairun         ###   ########.fr       */
+/*   Updated: 2026/03/12 02:06:34 by nchairun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,22 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	if (this != &other)
 	{
-		name = other.name;
-		hitPoints = other.hitPoints;
-		energyPoints = other.energyPoints;
-		attackDamage = other.attackDamage;
+		name            = other.name;
+		hitPoints       = other.hitPoints;
+		energyPoints    = other.energyPoints;
+		attackDamage    = other.attackDamage;
 	}
 	std::cout << "Copy assignment operator of " << name << " called" << std::endl;
 	return (*this);
+}
+
+/* ************************************************************************** */
+/*                              DESTRUCTOR                                    */
+/* ************************************************************************** */
+
+ClapTrap::~ClapTrap()
+{
+	std::cout << "Destructor of " << name << " called" << std::endl;
 }
 
 /* ************************************************************************** */
